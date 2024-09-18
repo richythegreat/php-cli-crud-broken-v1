@@ -17,27 +17,33 @@ $books = [
 
 
 function showAllBooks($books) {
-    foreach ($books as $id => $book) {
+    
+        foreach ($books as $id => $book) {
+            displayBook($id, $books[$id]);
+        }
         // need to display each book here
-    }
+    
 }
 
-function showBook() {
+function showBook($books) {
     $id = readline("Enter book id: ");
     displayBook($id, $books[$id]);
 }
 
 function addBook(&$books) {
     $title = readline("Enter title: ");
+    $author = readline("Enter author: ");
     $books[] = ['title' => $title, 'author' => $author];
 }
 
 function deleteBook(&$books) {
     $id = readline("Enter book ID you want to delete: ");
+    unset($books[$id]);
 }
 
 function displayBook($id, $book) {
     echo "ID: {$id} // Title: ". $book['title'] . " // Author: " . $book['author']. "\n\n";
+    
 }
 
 
